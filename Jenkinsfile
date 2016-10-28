@@ -5,7 +5,7 @@ node('master') {
         stage 'Version Check'
             sh 'npm --version'
         stage 'Set Npm Prefix'
-            sh 'npm config set prefix '~/mutable_node_modules'
+            sh 'npm config set prefix ~/mutable_node_modules'
         stage 'Dependencies'
             sh 'npm install -g gulp bower jshint'
         stage 'Node Build'
