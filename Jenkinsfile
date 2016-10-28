@@ -4,7 +4,6 @@ node('master') {
             checkout scm
         stage 'Version Check'
             sh 'npm --version'
-            sh 'which phantomjs'
             sh 'phantomjs -v'
         stage 'Set Npm Prefix'
             sh 'npm config set prefix ~/mutable_node_modules'
