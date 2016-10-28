@@ -7,8 +7,8 @@ node('master') {
         stage 'Set Npm Prefix'
             sh 'npm config set prefix ~/mutable_node_modules'
         stage 'Dependencies'
-            sh 'npm install -g gulp bower phantomjs'
-            sh 'npm install gulp bower phantomjs'
+            sh 'npm install -g gulp bower phantomjs-prebuilt'
+            sh 'npm install gulp bower phantomjs-prebuilt'
         stage 'Node Build'
             env.PATH = "~/mutable_node_modules/bin/:${env.PATH}"
             sh 'npm install'
