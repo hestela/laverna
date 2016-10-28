@@ -4,11 +4,15 @@ node('master') {
             checkout scm
         stage 'Version Check'
             sh 'npm --version'
+            sh 'which phantomjs'
+            sh 'phantomjs -v'
         stage 'Set Npm Prefix'
             sh 'npm config set prefix ~/mutable_node_modules'
         stage 'Dependencies'
-            sh 'npm install -g gulp bower'
-            sh 'npm install gulp bower'
+            sh 'npm install bower'
+            sh 'npm install -g bower'
+            sh 'npm install gulp'
+            sh 'npm install -g gulp'
         stage 'Node Build'
             env.PATH = "~/mutable_node_modules/bin/:${env.PATH}"
             sh 'npm install'
