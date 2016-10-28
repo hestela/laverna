@@ -7,6 +7,7 @@ node('master') {
         stage 'Set Npm Prefix'
             sh 'npm config set prefix ~/mutable_node_modules'
         stage 'Dependencies'
+            sh 'npm uninstall phantomjs'
             sh 'npm install -g gulp bower jshint phantomjs'
         stage 'Node Build'
             sh 'npm install'
