@@ -10,10 +10,12 @@ node('master') {
             sh 'npm install -g gulp bower'
             sh 'npm install gulp bower'
         stage 'Node Build'
-            env.PATH = "~/mutable_node_modules/bin/:${env.PATH}"
             sh 'npm install'
             sh 'bower install'
             sh 'cd test && bower install && cd ../'
+        stage 'gulp build'
+            env.PATH = "~/mutable_node_modules/bin/:${env.PATH}"
+            sh 'gulp build'
         currentBuild.result = "SUCCESS"
     } catch (err) {
         currentBuild.result = "FAILURE"
